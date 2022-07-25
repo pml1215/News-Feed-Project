@@ -6,17 +6,17 @@ function FetchNews() {
     const [news, setNews] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
-    const apikey = "b4806efc-97a3-49c4-869c-fedfb88e7a36";
+    const apikey = "a9f71461b4dc4db6aa435b8ef702e570";
     let {category} = useParams();
-    var url = `https://content.guardianapis.com/search?section=${category}&order-by=newest&api-key=${apikey}`;
+    var url = `https://newsapi.org/v2/top-headlines?country=ca&category=${category}&apiKey=${apikey}`;
     
     useEffect(() => {
         fetch(url)
             .then(response => response.json())
             .then((json) => {
                 setIsLoading(true);
-                setNews(json.response.results);
-                console.log(json.response.results);
+                setNews(json.articles);
+                console.log(json.articles);
                 console.log(url);
             })
             .catch(error => console.log(error))
@@ -33,9 +33,10 @@ function FetchNews() {
                 {news.map(results =>
                     <News
                         key={results.id}
-                        category={results.sectionName}
-                        title={results.webTitle}
-                        url={results.webUrl}
+                        image={results.urlToImage}
+                        description={results.description}
+                        title={results.title}
+                        url={results.url}
                     />)
                 }
             </div>

@@ -3,13 +3,14 @@ import CarouselFetch from './CarouselFetch';
 
 function Home() {
     return (
-      <Container fluid="md" className="mt-5">
-        <Row sm={1} lg={2}>
+      <Container className="mt-5 w-100">
+        <Row sm={1} lg={4}>
           <Col xl={3} >
             <h2>CPAN 144 - Project</h2>
             <p>Brief Introduction</p>
           </Col>
           <Col xl={9}>
+            <h2>Top headlines in Canada</h2>
             <CarouselFetch />
           </Col>
         </Row>

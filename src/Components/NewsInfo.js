@@ -1,20 +1,15 @@
-import { Card,Col } from 'react-bootstrap';
-
-
 function News(props) {
   return (
-      <Col xs={{span:5,offset:5}} className="mt-4 w-50">
-      <Card>
-      <Card.Header>{props.category}</Card.Header>
-      <Card.Body>
-        <Card.Title>{props.title}</Card.Title>
-        <Card.Text>
-          {props.description}
-        </Card.Text>
+    <div className="row g-0 bg-white position-relative offset-5 w-50 pt-2">
+      <div className="col-xl-4 mb-md-0 p-xl-4">
+        <img src={props.image} class="w-100" alt={props.title}></img>
+      </div>
+      <div className="col-xl-8 p-4 ps-xl-0">
+        <h5 className="mt-0">{props.title}</h5>
+        <p>{props.description}</p>
         <a href={props.url} className="stretched-link">{props.url}</a>
-      </Card.Body>
-    </Card>
-    </Col>
+      </div>
+    </div>
   );
 }
 

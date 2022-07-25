@@ -18,17 +18,14 @@ function NavbarComp() {
                 <LinkContainer to={"/"}>
                   <Nav.Link>Home</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to={"/news/world"}>
-                  <Nav.Link>World</Nav.Link>
-                </LinkContainer>
-                <LinkContainer to={"/news/sport"}>
+                <LinkContainer to={"/news/sports"}>
                   <Nav.Link>Sports</Nav.Link>
-                </LinkContainer>
-                <LinkContainer to={"/news/music"}>
-                  <Nav.Link>Music</Nav.Link>
                 </LinkContainer>
                 <LinkContainer to={"/news/business"}>
                   <Nav.Link>Business</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to={"/news/entertainment"}>
+                  <Nav.Link>Entertainment</Nav.Link>
                 </LinkContainer>
                 <LinkContainer to={"/news/technology"}>
                   <Nav.Link>Technology</Nav.Link>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Carousel} from 'react-bootstrap';
+import { Carousel,Card } from 'react-bootstrap';
 
 function FetchNews() {
     const [news, setNews] = useState([]);
@@ -10,16 +10,16 @@ function FetchNews() {
         setIndex(selectedIndex);
     };
 
-    const apikey = "b4806efc-97a3-49c4-869c-fedfb88e7a36";
-    var url = `https://content.guardianapis.com/search?section=news&order-by=newest&api-key=${apikey}`;
+    const apikey = "e4a14d404c954e0aa346e254635ec227";
+    var url = `https://newsapi.org/v2/top-headlines?country=ca&apiKey=${apikey}`;
     
     useEffect(() => {
         fetch(url)
             .then(response => response.json())
             .then((json) => {
                 setIsLoading(true);
-                setNews(json.response.results);
-                console.log(json.response.results);
+                setNews(json.articles);
+                console.log(json.articles);
                 console.log(url);
             })
             .catch(error => console.log(error))
@@ -32,13 +32,17 @@ function FetchNews() {
         );
     } else {
         return (
-                <Carousel className="carousel" variant="dark" activeIndex={index} onSelect={handleSelect} interval={5000}>
+                <Carousel variant="dark" activeIndex={index} onSelect={handleSelect} interval={5000}>
                     {news.map((results) => (
                         <Carousel.Item>
-                            <h4>
-                            {results.webTitle}
-                            </h4>
-                            <a href={results.webUrl}>{results.webUrl}</a>
+                            <Card className="bg-dark text-white">
+                                <Card.Img src={results.urlToImage} alt="Card image"/>
+                                <Card.Body>
+                                    <Card.Title>{results.title}</Card.Title>
+                                    <Card.Text>{results.description}</Card.Text>
+                                    <a href={results.url} className="btn btn-primary">Read More</a>
+                                </Card.Body>
+                            </Card>
                         </Carousel.Item>
                     ))}
                 </Carousel>
