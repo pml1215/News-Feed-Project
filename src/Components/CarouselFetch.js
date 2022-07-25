@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Carousel,Card } from 'react-bootstrap';
+import { Carousel } from 'react-bootstrap';
+
 
 function FetchNews() {
     const [news, setNews] = useState([]);
@@ -10,9 +11,9 @@ function FetchNews() {
         setIndex(selectedIndex);
     };
 
-    const apikey = "e4a14d404c954e0aa346e254635ec227";
+    const apikey = "a9f71461b4dc4db6aa435b8ef702e570";
     var url = `https://newsapi.org/v2/top-headlines?country=ca&apiKey=${apikey}`;
-    
+
     useEffect(() => {
         fetch(url)
             .then(response => response.json())
@@ -27,25 +28,30 @@ function FetchNews() {
 
     if (!isLoading) {
         return (
-        <div className="loading">Loading...
-        </div>
+            <div className="loading">Loading...
+            </div>
         );
     } else {
         return (
+            <div>
+                <h2>Today News in Canada</h2>
                 <Carousel variant="dark" activeIndex={index} onSelect={handleSelect} interval={5000}>
                     {news.map((results) => (
                         <Carousel.Item>
-                            <Card className="bg-dark text-white">
-                                <Card.Img src={results.urlToImage} alt="Card image"/>
-                                <Card.Body>
-                                    <Card.Title>{results.title}</Card.Title>
-                                    <Card.Text>{results.description}</Card.Text>
-                                    <a href={results.url} className="btn btn-primary">Read More</a>
-                                </Card.Body>
-                            </Card>
+                        <div className="row bg-light position-relative pt-2">
+                            <div className="col-xl-6 mb-md-0 p-xl-3">
+                                <img src={results.urlToImage} class="w-100" alt={results.title}></img>
+                            </div>
+                            <div className="col-xl-6 p-4 ps-xl-2 text-start">
+                                <h5>{results.title}</h5>
+                                <p>{results.description}</p>
+                                <a href={results.url} className="stretched-link"></a>
+                            </div>
+                        </div>
                         </Carousel.Item>
                     ))}
                 </Carousel>
+            </div>
         );
     }
 }

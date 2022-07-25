@@ -2,13 +2,14 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import News from './NewsInfo';
 
-function FetchNews() {
+function FetchNews(props) {
     const [news, setNews] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
-    const apikey = "a9f71461b4dc4db6aa435b8ef702e570";
+
     let {category} = useParams();
-    var url = `https://newsapi.org/v2/top-headlines?country=ca&category=${category}&apiKey=${apikey}`;
+    const apikey = "a9f71461b4dc4db6aa435b8ef702e570";
+    var url = `https://newsapi.org/v2/top-headlines?category=${category}&country=ca&apiKey=${apikey}`;
     
     useEffect(() => {
         fetch(url)
