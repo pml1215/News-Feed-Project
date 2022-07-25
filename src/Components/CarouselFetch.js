@@ -38,11 +38,11 @@ function FetchNews() {
                 <Carousel variant="dark" activeIndex={index} onSelect={handleSelect} interval={5000}>
                     {news.map((results) => (
                         <Carousel.Item>
-                        <div className="row bg-light position-relative pt-2">
+                        <div className="row bg-light position-relative p-3">
                             <div className="col-xl-6 mb-md-0 p-xl-3">
                                 <img src={results.urlToImage} class="w-100" alt={results.title}></img>
                             </div>
-                            <div className="col-xl-6 p-4 ps-xl-2 text-start">
+                            <div className="col-xl-6 p-4 ps-xl-2">
                                 <h5>{results.title}</h5>
                                 <p>{results.description}</p>
                                 <a href={results.url} className="stretched-link"></a>
