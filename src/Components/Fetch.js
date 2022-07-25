@@ -1,16 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Carousel } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import News from './NewsInfo';
 
 function FetchNews() {
     const [news, setNews] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [index, setIndex] = useState(0);
-
-    const handleSelect = (selectedIndex, e) => {
-        setIndex(selectedIndex);
-    };
 
     const apikey = "b4806efc-97a3-49c4-869c-fedfb88e7a36";
     let {category} = useParams();
@@ -36,13 +30,14 @@ function FetchNews() {
     } else {
         return (
             <div>
-                <Carousel activeIndex={index} onSelect={handleSelect} interval={null}>
-                    {news.map((news) => (
-                        <Carousel.Item>
-                            <News title={news.webTitle} url={news.webUrl} />
-                        </Carousel.Item>
-                    ))}
-                </Carousel>
+                {news.map(results =>
+                    <News
+                        key={results.id}
+                        category={results.sectionName}
+                        title={results.webTitle}
+                        url={results.webUrl}
+                    />)
+                }
             </div>
         );
     }

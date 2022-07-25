@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import News from './NewsInfo';
+import { Carousel} from 'react-bootstrap';
 
 function FetchNews() {
     const [news, setNews] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [index, setIndex] = useState(0);
+
+    const handleSelect = (selectedIndex, e) => {
+        setIndex(selectedIndex);
+    };
 
     const apikey = "b4806efc-97a3-49c4-869c-fedfb88e7a36";
-    let {category} = useParams();
-    var url = `https://content.guardianapis.com/search?section=${category}&order-by=newest&api-key=${apikey}`;
+    var url = `https://content.guardianapis.com/search?section=news&order-by=newest&api-key=${apikey}`;
     
     useEffect(() => {
         fetch(url)
@@ -29,15 +32,16 @@ function FetchNews() {
         );
     } else {
         return (
-            <div>
-                {news.map(results =>
-                    <News
-                        key={results.id}
-                        title={results.webTitle}
-                        url={results.webUrl}
-                    />)
-                }
-            </div>
+                <Carousel className="carousel" variant="dark" activeIndex={index} onSelect={handleSelect} interval={5000}>
+                    {news.map((results) => (
+                        <Carousel.Item>
+                            <h4>
+                            {results.webTitle}
+                            </h4>
+                            <a href={results.webUrl}>{results.webUrl}</a>
+                        </Carousel.Item>
+                    ))}
+                </Carousel>
         );
     }
 }

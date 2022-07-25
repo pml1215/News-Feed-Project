@@ -1,4 +1,4 @@
-import Fetch from './Fetch1';
+import Fetch from './Fetch';
 
 function Content() {
   return(

@@ -9,13 +9,13 @@ function NavbarComp() {
       <BrowserRouter>
         <Navbar bg="dark" variant="dark" expand="lg">
           <Container className="ms-5">
-            <LinkContainer to={"/news"}>
+            <LinkContainer to={"/"}>
               <Navbar.Brand>News Feed</Navbar.Brand>
             </LinkContainer>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse>
               <Nav>
-                <LinkContainer to={"/news"}>
+                <LinkContainer to={"/"}>
                   <Nav.Link>Home</Nav.Link>
                 </LinkContainer>
                 <LinkContainer to={"/news/world"}>
@@ -42,7 +42,7 @@ function NavbarComp() {
         </Navbar>
   
         <Routes>
-          <Route path="/:category" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/news/:category" element={<Content/>} />
         </Routes>
   
