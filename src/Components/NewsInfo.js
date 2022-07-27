@@ -1,6 +1,5 @@
 function News(props) {
-  if (props.image === null) {
-
+  if (!props.image) {
     return (
       <div className="row g-0 bg-white position-relative offset-5 w-50 pt-2">
         <div className="col-xl-4 mb-md-0 p-xl-4">
@@ -17,7 +16,7 @@ function News(props) {
     return (
       <div className="row g-0 bg-white position-relative offset-5 w-50 pt-2">
         <div className="col-xl-4 mb-md-0 p-xl-4">
-          <img src={props.image} class="w-100" alt={props.title}></img>
+          <img src={props.image} className="w-100" alt={props.title}></img>
         </div>
         <div className="col-xl-8 p-4 ps-xl-0">
           <h5 className="mt-0">{props.title}</h5>

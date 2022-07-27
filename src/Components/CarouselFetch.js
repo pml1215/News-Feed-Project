@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Carousel } from 'react-bootstrap';
+import axios from 'axios';
 
 
 function FetchNews() {
@@ -11,20 +12,27 @@ function FetchNews() {
         setIndex(selectedIndex);
     };
 
-    const apikey = "a9f71461b4dc4db6aa435b8ef702e570";
-    var url = `https://newsapi.org/v2/top-headlines?country=ca&apiKey=${apikey}`;
+    const options = {
+      method: 'GET',
+      url: 'https://bing-news-search1.p.rapidapi.com/news',
+      params: {mkt: 'en-CA', safeSearch: 'Off', textFormat: 'Raw'},
+      headers: {
+        'X-BingApis-SDK': 'true',
+        'X-RapidAPI-Key': '9da41f44bcmshf68bf6e7e12e85fp1a1880jsn6693a732a5f7',
+        'X-RapidAPI-Host': 'bing-news-search1.p.rapidapi.com'
+      }
+    };
 
     useEffect(() => {
-        fetch(url)
-            .then(response => response.json())
+        axios.request(options)
             .then((json) => {
                 setIsLoading(true);
-                setNews(json.articles);
-                console.log(json.articles);
-                console.log(url);
-            })
+                setNews(json.data.value);
+                console.log(json.data.value);
+            }
+            )
             .catch(error => console.log(error))
-    }, [url]);
+    }, []);
 
     if (!isLoading) {
         return (
@@ -40,10 +48,10 @@ function FetchNews() {
                         <Carousel.Item>
                         <div className="row bg-light position-relative p-3">
                             <div className="col-xl-6 mb-md-0 p-xl-3">
-                                <img src={results.urlToImage} class="w-100" alt={results.title}></img>
+                                <img src={results.image?.thumbnail.contentUrl} className="w-100" alt={results.name}></img>
                             </div>
                             <div className="col-xl-6 p-4 ps-xl-2">
-                                <h5>{results.title}</h5>
+                                <h5>{results.name}</h5>
                                 <p>{results.description}</p>
                                 <a href={results.url} className="stretched-link"></a>
                             </div>

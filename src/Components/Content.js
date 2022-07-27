@@ -3,12 +3,11 @@ import SearchBar from './SearchBar';
 import {useParams} from 'react-router-dom';
 
 function Content() {
-  let {category} = useParams();
-  const categoryUpper = category.toUpperCase();
+  let {newsCategory} = useParams();
 
   return(
     <div>
-      <h2 className="pt-3 ms-4">{categoryUpper} - Top Headlines</h2>
+      <h2 className="pt-3 ms-4">{newsCategory} - Top Headlines</h2>
       <SearchBar />
       <br/>
       <Fetch/>

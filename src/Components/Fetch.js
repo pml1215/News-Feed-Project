@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 import News from './NewsInfo';
 
 function FetchNews(props) {
@@ -7,21 +8,29 @@ function FetchNews(props) {
     const [isLoading, setIsLoading] = useState(false);
 
 
-    let {category} = useParams();
-    const apikey = "a9f71461b4dc4db6aa435b8ef702e570";
-    var url = `https://newsapi.org/v2/top-headlines?category=${category}&country=ca&apiKey=${apikey}`;
-    
-    useEffect(() => {
-        fetch(url)
-            .then(response => response.json())
-            .then((json) => {
-                setIsLoading(true);
-                setNews(json.articles);
-                console.log(json.articles);
-                console.log(url);
-            })
-            .catch(error => console.log(error))
-    }, [url]);
+    let {newsCategory} = useParams();
+
+    const options = {
+        method: 'GET',
+        url: 'https://bing-news-search1.p.rapidapi.com/news',
+        params: {category:newsCategory, safeSearch: 'Off', textFormat: 'Raw'},
+        headers: {
+          'X-BingApis-SDK': 'true',
+          'X-RapidAPI-Key': '9da41f44bcmshf68bf6e7e12e85fp1a1880jsn6693a732a5f7',
+          'X-RapidAPI-Host': 'bing-news-search1.p.rapidapi.com'
+        }
+      };
+  
+      useEffect(() => {
+          axios.request(options)
+              .then((json) => {
+                  setIsLoading(true);
+                  setNews(json.data.value);
+                  console.log(json.data.value);
+              }
+              )
+              .catch(error => console.log(error))
+      }, [options]);
 
     if (!isLoading) {
         return (
@@ -34,9 +43,9 @@ function FetchNews(props) {
                 {news.map(results =>
                     <News
                         key={results.id}
-                        image={results.urlToImage}
+                        image={results.image?.thumbnail.contentUrl}
                         description={results.description}
-                        title={results.title}
+                        title={results.name}
                         url={results.url}
                     />)
                 }

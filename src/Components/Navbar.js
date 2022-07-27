@@ -18,20 +18,20 @@ function NavbarComp() {
                 <LinkContainer to={"/"}>
                   <Nav.Link>Home</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to={"/news/sports"}>
+                <LinkContainer to={"/news/Sports"}>
                   <Nav.Link>Sports</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to={"/news/business"}>
+                <LinkContainer to={"/news/Business"}>
                   <Nav.Link>Business</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to={"/news/entertainment"}>
+                <LinkContainer to={"/news/Entertainment"}>
                   <Nav.Link>Entertainment</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to={"/news/technology"}>
-                  <Nav.Link>Technology</Nav.Link>
+                <LinkContainer to={"/news/ScienceAndTechnology"}>
+                  <Nav.Link>ScienceAndTechnology</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to={"/news/science"}>
-                  <Nav.Link>Science</Nav.Link>
+                <LinkContainer to={"/news/World"}>
+                  <Nav.Link>World</Nav.Link>
                 </LinkContainer>
               </Nav>
             </Navbar.Collapse>
@@ -40,7 +40,7 @@ function NavbarComp() {
   
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/news/:category" element={<Content/>} />
+          <Route path="/news/:newsCategory" element={<Content/>} />
         </Routes>
   
       </BrowserRouter>
