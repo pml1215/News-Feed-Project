@@ -1,5 +1,9 @@
-function getDate(){
-  const date = new Date();
+function GetDate(){
+  return (
+    <div className="date">
+      <h5>{new Date().toLocaleDateString()}</h5>
+    </div>
+  )
 }
 
-export default getDate;
+export default GetDate;

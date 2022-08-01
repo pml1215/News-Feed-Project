@@ -1,13 +1,21 @@
 import { Container, Row, Col} from 'react-bootstrap';
 import CarouselFetch from './CarouselFetch';
+import GetDate from './getDate';
 
 function Home() {
     return (
-      <Container className="me-5 mt-5 w-100 ">
+      <Container className="mt-5 w-100 ">
         <Row>
-          <Col>
-            <h2>CPAN 144 - Project</h2>
-            <p>Brief Introduction</p>
+          <Col xl={3} >
+            <GetDate />
+            <h2>CPAN 144 - <br/>News Feed App</h2>
+            <p>This app is a news feed app that fetches news from Microsoft Bing</p>
+            <p>produced by:</p>
+            <ul>
+              <li>Chi Lam Yim</li>
+              <li>Ka Yan Lui</li>
+              <li>Ming Lok Pun</li>
+            </ul>
           </Col>
           <Col xl={9} >
             <CarouselFetch />

@@ -37,7 +37,6 @@ function NavbarComp() {
             </Navbar.Collapse>
           </Container>
         </Navbar>
-  
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/news/:newsCategory" element={<Content/>} />
