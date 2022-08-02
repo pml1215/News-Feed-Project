@@ -30,7 +30,7 @@ function FetchNews(props) {
               }
               )
               .catch(error => console.log(error))
-      }, [options]);
+      }, [newsCategory]);
 
     if (!isLoading) {
         return (
