@@ -1,4 +1,5 @@
 import Home from './Home';
+import About from './About';
 import Content from './Content';
 import { Nav, Navbar, Container } from 'react-bootstrap';
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
@@ -6,12 +7,25 @@ import { LinkContainer } from 'react-router-bootstrap';
 
 function NavbarComp() {
     return (
-      <BrowserRouter>
-        <Navbar bg="dark" variant="dark" expand="lg">
-          <Container className="ms-5">
-            <LinkContainer to={"/"}>
-              <Navbar.Brand>News Feed</Navbar.Brand>
+      
+      <BrowserRouter> 
+      <LinkContainer to={"/"}>
+              <Navbar.Brand className="brandname">
+              <img
+              src="/logo-BingNews.svg"
+              width="190"
+              height="100"
+              alt="Bing News logo"
+            />
+                
+                </Navbar.Brand>
+              
             </LinkContainer>
+
+        <Navbar bg="primary" variant="dark" expand="lg" >
+          <Container className="ms-5">
+           
+            <br/><br/>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse>
               <Nav>
@@ -33,6 +47,9 @@ function NavbarComp() {
                 <LinkContainer to={"/news/World"}>
                   <Nav.Link>World</Nav.Link>
                 </LinkContainer>
+                <LinkContainer to={"/About"}>
+                  <Nav.Link>About</Nav.Link>
+                </LinkContainer>
               </Nav>
             </Navbar.Collapse>
           </Container>
@@ -40,9 +57,11 @@ function NavbarComp() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/news/:newsCategory" element={<Content/>} />
+          <Route path="/About" element={<About />} />
         </Routes>
   
       </BrowserRouter>
+      
     )
   }
 

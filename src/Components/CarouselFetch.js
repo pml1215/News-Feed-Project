@@ -18,7 +18,7 @@ function FetchNews() {
       params: {mkt: 'en-CA', safeSearch: 'Off', textFormat: 'Raw'},
       headers: {
         'X-BingApis-SDK': 'true',
-        'X-RapidAPI-Key': '9da41f44bcmshf68bf6e7e12e85fp1a1880jsn6693a732a5f7',
+        'X-RapidAPI-Key': 'df61594a49mshad3ef36d5a24d11p160b8djsn7f3e7b832ae0',
         'X-RapidAPI-Host': 'bing-news-search1.p.rapidapi.com'
       }
     };
@@ -36,7 +36,7 @@ function FetchNews() {
 
     if (!isLoading) {
         return (
-            <div className="loading">Loading...
+            <div className="loading">Content is Loading...
             </div>
         );
     } else {
@@ -48,10 +48,11 @@ function FetchNews() {
                         <Carousel.Item>
                         <div className="row bg-light position-relative p-3">
                             <div className="col-xl-6 mb-md-0 p-xl-3">
-                                <img src={results.image?.thumbnail.contentUrl} className="w-100" alt={results.name}></img>
+                                <img src={results.image?.thumbnail.contentUrl} className="w-50" alt={results.name}></img>
                             </div>
                             <div className="col-xl-6 p-4 ps-xl-2">
                                 <h5>{results.name}</h5>
+                        
                                 <p>{results.description}</p>
                                 <a href={results.url} className="stretched-link"></a>
                             </div>

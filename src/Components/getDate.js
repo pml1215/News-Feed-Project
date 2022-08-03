@@ -1,7 +1,7 @@
 function GetDate(){
   return (
     <div className="date">
-      <h5>{new Date().toLocaleDateString()}</h5>
+      <h5>Today is {new Date().toLocaleDateString()}</h5>
     </div>
   )
 }
