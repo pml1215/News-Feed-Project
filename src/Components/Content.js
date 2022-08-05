@@ -7,8 +7,8 @@ function Content() {
 
   return(
     <div>
-      <h2 className="pt-3 ms-4">{newsCategory} - Top Headlines</h2>
       <SearchBar />
+      <h1 className="newsheader">{newsCategory}</h1>
       <br/>
       <Fetch/>
     </div>
