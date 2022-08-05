@@ -8,10 +8,12 @@ function Home() {
       <Container className="mt-5 w-100 ">
         <Row>
             <GetDate />
-
             <CarouselFetch />
         </Row>       
-
+            <div className='cardgroup'>
+              <h3>Trending</h3>
+              <FetchTrending />
+            </div>
       </Container>
 
     );

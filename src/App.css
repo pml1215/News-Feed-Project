@@ -1,13 +1,14 @@
 .carousel {
-    font-weight: 300;
-    color: rgb(0, 0, 0);
-    border-radius: 10px;
-    margin: 15px 20px 5px;
-    padding: 0px 100px 50px;
-  }
+  font-weight: 300;
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  margin: 15px 20px 5px;
+  padding: 0px 100px 50px;
+}
+
 .brandname {
-    margin: 45px;
-    padding: 0px 10px;
+  margin: 45px;
+  padding: 0px 10px;
 }
 
 .navbar-color {
@@ -15,54 +16,46 @@
 }
 
 Nav {
-    border-radius: 50px;
-    margin-left: 110px ;
-    margin-right: 110px ;
-    font-size: 20px;
-  }
+  border-radius: 50px;
+  margin-left: 110px;
+  margin-right: 110px;
+  font-size: 20px;
+}
 
-.loading{
+.loading {
 
   font-size: 30px;
-  }
+}
 
-.About{
-  margin: 55px 80px ;
-    border-radius: 20px;
-    padding: 30px;
-    background-color: #d8eaff;
+.About {
+  margin: 55px 80px;
+  border-radius: 20px;
+  padding: 30px;
+  background-color: #d8eaff;
 }
 
 .centered {
   margin: 29px 130px 0px;
-  width: 80%; 
+  width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.newsheader{
+.newsheader {
   margin: 29px 130px 0px;
   font-weight: 600;
   font-size: 35px;
 }
 
-.cards{
-  width: 18rem;
-  margin: 15px ;
+.cards {
+  width: 13rem;
+  margin: 8px;
 }
 
-.trending{
-  width:80%;
-  margin: auto ;
-  height: 70%;
- 
+.cardgrp {
+  margin-left: 90px;
+  margin-right: 40px;
+  width: 80%;
 
 }
-
-
-
-
-
-
-

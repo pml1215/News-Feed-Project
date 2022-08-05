@@ -17,7 +17,7 @@ function News(props) {
     return (
       <div className="row g-0 bg-white position-relative offset-2 w-50  pt-2">
         <div className="col-xl-4 mb-md-0 p-xl-4">
-          <img style={{borderRadius:"30px", width:"20px"}} src={props.image} className="w-100" alt={props.title}></img>
+          <img style={{borderRadius:"30px"}} src={props.image} className="w-50" alt={props.title}></img>
         </div>
         <div className="col-xl-8 p-4 ps-xl-0">
           <h4 >{props.title}</h4>
