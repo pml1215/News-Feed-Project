@@ -1,10 +1,10 @@
 
 
-export default function About() {
+export default function About(props) {
     return (
     
       <div
-      className="About">
+      className={props.show?"about active":"about"}>
       <h1>About</h1>
       <br/>
       <h4>This app is a news feed app that fetches news from Microsoft Bing</h4>

@@ -1,16 +1,14 @@
-import Fetch from './Fetch';
-import SearchBar from './SearchBar';
+import CategoryFetch from './CategoryFetch';
 import {useParams} from 'react-router-dom';
 
-function Content() {
+function Content(props) {
   let {newsCategory} = useParams();
 
   return(
-    <div>
-      <SearchBar />
+    <div className={props.show?"content active":"content"}>
       <h1 className="newsheader">{newsCategory}</h1>
       <br/>
-      <Fetch/>
+      <CategoryFetch newsCategory={newsCategory}/>
     </div>
   );
 }

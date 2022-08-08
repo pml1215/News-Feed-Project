@@ -1,13 +1,16 @@
+import Moment from 'react-moment';
+import 'moment/locale/ca';
+
 function News(props) {
   if (!props.image) {
     return (
-      <div className="row g-0 bg-white position-relative offset-2 w-50 pt-2">
+      <div className="row g-0 bg-white position-relative offset-2 pt-2 newContainer">
         <div className="col-xl-4 mb-md-0 p-xl-4">
-          <img style={{borderRadius:"30px"}}  src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930" class="w-100" alt="nopic"></img>
+          <img style={{borderRadius:"30px"}}  src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930" alt="nopic"></img>
         </div>
         <div className="col-xl-8 p-4 ps-xl-0">
           <h4 className="mt-0">{props.title}</h4>
-          <p>{props.date}</p>
+          <Moment locale="ca">{props.date}</Moment>
           <p>{props.description}</p>
           <a href={props.url} className="stretched-link">{props.url}</a>
         </div>
@@ -15,13 +18,13 @@ function News(props) {
     );
   } else {
     return (
-      <div className="row g-0 bg-white position-relative offset-2 w-50  pt-2">
+      <div className="row g-0 bg-white position-relative offset-2 pt-2 newContainer">
         <div className="col-xl-4 mb-md-0 p-xl-4">
-          <img style={{borderRadius:"30px"}} src={props.image} className="w-50" alt={props.title}></img>
+          <img style={{borderRadius:"30px"}} src={props.image} alt={props.title}></img>
         </div>
         <div className="col-xl-8 p-4 ps-xl-0">
-          <h4 >{props.title}</h4>
-          <p>{props.date}</p>
+          <h4>{props.title}</h4>
+          <Moment locale="ca">{props.date}</Moment>
           <p>{props.description}</p>
           <a href={props.url} className="stretched-link">{props.url}</a>
         </div>

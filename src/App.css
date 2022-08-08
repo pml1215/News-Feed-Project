@@ -1,13 +1,23 @@
 .carousel {
+  font-size: 20px;
   font-weight: 300;
   color: rgb(0, 0, 0);
   border-radius: 10px;
-  margin: 15px 20px 5px;
-  padding: 0px 100px 50px;
+  margin: 10px 20px 5px;
+  padding: 0px 10px 50px;
+}
+
+.carousel-inner{
+  margin-left: 10%;
+  width:80% !important;
+}
+
+.carousel img{
+  margin-left: 50px;
 }
 
 .brandname {
-  margin: 45px;
+  margin: 10px;
   padding: 0px 10px;
 }
 
@@ -23,15 +33,22 @@ Nav {
 }
 
 .loading {
-
   font-size: 30px;
+  font-weight: 300;
+  text-align: center;
 }
 
-.About {
+.about {
   margin: 55px 80px;
   border-radius: 20px;
   padding: 30px;
   background-color: #d8eaff;
+  transition: all 0.8s;
+}
+
+.about.active{
+  margin-left: 350px;
+  transition: all 0.8s;
 }
 
 .centered {
@@ -43,9 +60,24 @@ Nav {
 }
 
 .newsheader {
+  color: #1a6ae1;
+  border-bottom: #1a6ae1 solid 3px;
   margin: 29px 130px 0px;
   font-weight: 600;
   font-size: 35px;
+}
+
+.newContainer {
+  box-shadow: #9e9d9d 0px 0px 5px;
+  margin: 10px;
+  width: 70%;
+}
+
+.newContainer img {
+  width: 50%;
+  margin-top: 5%;
+  margin-left: 25%;
+  margin-right: 25%;
 }
 
 .cards {
@@ -57,5 +89,115 @@ Nav {
   margin-left: 90px;
   margin-right: 40px;
   width: 80%;
-
 }
+
+.sidenav{
+  width: 320px;
+  background: #000000;
+  position:fixed;
+  height: 95vh;
+  padding: 0 30px;
+  left: -100%;
+  transition: 1.5s;
+  flex: 1 0 auto;
+}
+
+.sidenav.active{
+  left: 0; 
+  display: flex;
+  transition: all 0.8s;
+}
+
+.home.container{
+  margin-top: 50px;
+  margin-left: 50px;
+  width: 75%;
+  transition: all 0.8s;
+}
+
+.home.active.container{
+  margin-left: 350px;
+  transition: all 0.8s;
+}
+
+.content{
+  transition: all 0.8s;
+}
+
+.content.active{
+  margin-left: 350px;
+  transition: all 0.8s;
+}
+
+.searchNews{
+  transition: all 0.8s;
+}
+
+.searchNews.active{
+  margin-left: 350px;
+  transition: all 0.8s;
+}
+
+.nav{
+  display: flex;
+  flex-direction: column;
+}
+
+a.nav-link{
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-left: -20px;
+  margin-bottom: 10px;
+}
+
+a.nav-link svg{
+  margin-right: 5px;
+  padding-bottom: 5px;
+}
+
+.topnavbar{
+  background-color: #ffffff;
+  width: 100%;
+  box-shadow: 1px 1px 0.5px #d4d5d6;
+}
+
+.headericon{
+  color: #165fb3;
+  display: inline-block;
+  font-size: 30px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.centered.container{
+  width:65%;
+  display: inline-block;
+}
+
+
+@media screen and (max-width: 1000px) {
+  .centered.container {
+    width: 45%;
+    margin-left: 0px;
+  }
+
+  .carousel-inner{
+    width: 100%;
+  }
+
+  .carousel img{
+    margin-left: 25px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .home.container{
+    margin-left: 50px;
+  }
+}
+
+
+
+

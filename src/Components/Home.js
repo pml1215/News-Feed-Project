@@ -1,11 +1,11 @@
-import { Container, Row, Col} from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import CarouselFetch from './CarouselFetch';
 import FetchTrending from './FetchTrending';
 import GetDate from './getDate';
 
-function Home() {
+function Home(props) {
     return (
-      <Container className="mt-5 w-100 ">
+      <Container className={props.show?"home active":"home"}>
         <Row>
             <GetDate />
             <CarouselFetch />
