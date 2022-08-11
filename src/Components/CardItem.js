@@ -3,7 +3,6 @@ import Card from 'react-bootstrap/Card';
 
 
 function CardItem(props) {
-  // console.log(props);
   const img = !props.image ? props.notfoundimage : props.image;
 
   return (
